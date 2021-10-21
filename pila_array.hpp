@@ -70,8 +70,17 @@ void Pila<T>::apilar(const T& e)
     num_elems++;
   }
   else {
-    //implementacion dinamica
-    std::cout << "La pila esta llena.";
+     T* nueva_pila = new T[capacidad*2];
+     for (int i = 0; i < capacidad; i++) {
+       nueva_pila[i] = pila[(primero + i) % capacidad];
+     }
+     delete pila;
+     pila = nueva_pila;
+
+     pila[num_elems] = e;
+     primero = 0;
+     num_elems++;
+     capacidad*=2;
   }
 }
 
@@ -87,10 +96,6 @@ void Pila<T>::desapilar(void)
     primero = 0;
   
   num_elems--;
-  std::cout << "[";
-  for (int i =0; i < INIT_CAP; i++)
-    std::cout << pila[i] << ", ";
-  std::cout <<"\033[2D]\n";
 }
 
 template <typename T>

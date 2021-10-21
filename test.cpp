@@ -10,6 +10,8 @@ int main()
   p1.desapilar();
   p1.apilar(7);
   p1.apilar(8);
+  p1.apilar(10);
+  p1.apilar(11);
   std::cout <<"p1 tiene profundidad " << p1.profundidad() << "; p1 = " << p1 << ";\n";
   while (!p1.es_pila_vacia()) {
     std::cout << p1.cima() << "\n";
